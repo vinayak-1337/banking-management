@@ -55,34 +55,42 @@ export default function RegisterForm() {
           type="text"
           value={name}
           onChange={handleChange}
+          required
         />
         <FormInput
           name="age"
           type="number"
           value={age}
           onChange={handleChange}
+          required
         />
         <FormInput
           name="contact"
           type="tel"
           value={contact}
           onChange={handleChange}
+          pattern="[0-9]{10}"
+          required
         />
         <FormInput
           name="username"
           type="text"
           value={username}
           onChange={handleChange}
+          required
         />
         <FormInput
           name="password"
           type="password"
           value={password}
           onChange={handleChange}
+          required
         />
         <FormInput type="submit" value="submit" />
       </form>
-      <p>Already a user. <Link to="/">Log in</Link></p>
+      <p>
+        Already a user. <Link to="/">Log in</Link>
+      </p>
       <ModalBox
         onClose={() => {
           setShowModal(false);
