@@ -60,12 +60,14 @@ export default function LoginForm() {
           type="text"
           value={username}
           onChange={handleChange}
+          required
         />
         <FormInput
           name="password"
           type="password"
           value={password}
           onChange={handleChange}
+          required
         />
         <FormInput type="submit" value="submit" />
       </form>
