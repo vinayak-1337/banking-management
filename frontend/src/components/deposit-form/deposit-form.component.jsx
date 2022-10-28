@@ -28,11 +28,11 @@ export default function DipositForm() {
     setModalValue(message);
     setShowModal(true);
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    Axios.post("http://localhost:3001/deposit", {
+    Axios.post("https://banking-management-backend.herokuapp.com/deposit", {
       id: id,
       amount: amount,
     }).then((res) => console.log(res.data));

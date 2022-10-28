@@ -40,7 +40,7 @@ export default function MoneyTransfer() {
       modalAlert("Insufficient funds");
       return;
     }
-    Axios.post("http://localhost:3001/transfer", {
+    Axios.post("https://banking-management-backend.herokuapp.com/transfer", {
       senderId: currentUser.id,
       receiverUsername: receiver,
       amount: amount,

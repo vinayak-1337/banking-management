@@ -30,12 +30,14 @@ export default function RegisterForm() {
   const alertModal = (message) => {
     setModalValue(message);
     setShowModal(true);
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    Axios.post("http://localhost:3001/create", { ...formField }).then((res) => {
+    Axios.post("https://banking-management-backend.herokuapp.com/create", {
+      ...formField,
+    }).then((res) => {
       if (res.data.code === "ER_DUP_ENTRY") {
         alert("User already exist. Please choose different username");
       } else {
