@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FormInput from "../form-input/form-input.component";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ModalBox from "../modal-box/modal-box.component";
 
 const defaultFormField = {
@@ -17,7 +17,6 @@ export default function RegisterForm() {
   const { name, age, contact, username, password } = formField;
   const [showModal, setShowModal] = useState(false);
   const [modalValue, setModalValue] = useState("");
-  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -49,7 +48,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <>
+    <div className="register-container">
       <form className="form-container" onSubmit={handleSubmit}>
         <FormInput
           name="name"
@@ -83,6 +82,7 @@ export default function RegisterForm() {
         />
         <FormInput type="submit" value="submit" />
       </form>
+      <p>Already a user. <Link to="/">Log in</Link></p>
       <ModalBox
         onClose={() => {
           setShowModal(false);
@@ -90,6 +90,6 @@ export default function RegisterForm() {
         value={modalValue}
         show={showModal}
       />
-    </>
+    </div>
   );
 }
